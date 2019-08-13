@@ -1,0 +1,1478 @@
+@import "_common";
+@import "_flexbox";
+@import "_responsive";
+@import "_variables";
+@import "_fonts";
+
+html {
+  font-family: Roboto;
+  @include breakpoint(phone) {
+    font-size: 10px
+  }
+  @include breakpoint(mobile) {
+    font-size: 11px
+  }
+  @include breakpoint(tablet) {
+    font-size: 12px
+  }
+  @include breakpoint(laptop) {
+    font-size: 14px
+  }
+  @include breakpoint(widescreen) {
+    font-size: 16px
+  }
+}
+
+.main {
+  background-image: $main-gradient, url('../images/Eagle.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100%;
+  font-family: Montserrat;
+
+  .content {
+    width: 80%;
+    margin: 0 auto;
+
+    .nav {
+      @include flexbox();
+      @include flex-flow(row nowrap);
+      @include justify-content(space-between);
+      padding: 2rem 0;
+
+      &__logo {
+        color: #ffffff;
+        font-family: Montserrat-B;
+        font-size: 2rem;
+        font-weight: 700;
+        padding-right: 2rem;
+      }
+
+      &__line {
+        @include flexbox();
+        @include flex-flow(row nowrap);
+        @include justify-content(space-between);
+
+        @include breakpoint(phone) {
+          display: none;
+        }
+        @include breakpoint(mobile) {
+          display: none;
+        }
+        @include breakpoint(tablet) {
+          @include flexbox;
+          @include flex-wrap(wrap);
+          @include justify-content(flex-end);
+        }
+
+        &__link {
+          padding: 0.75rem 1.5rem;
+
+          a {
+            color: white;
+            text-decoration: none;
+            padding: 0.25rem 0;
+            text-transform: uppercase;
+
+            &:hover {
+              color: $yellow-link;
+              border-bottom: 2px solid $yellow-link
+            }
+          }
+        }
+      }
+
+      &__button {
+        font-size: 2rem;
+        position: relative;
+        @include breakpoint(phone) {
+          display: inline-block;
+        }
+        @include breakpoint(mobile) {
+          display: inline-block;
+        }
+        @include breakpoint(tablet) {
+          display: none;
+        }
+
+        &:hover, &:active {
+          .dropdown-btn {
+            color: $yellow-link;
+          }
+
+          .dropdown-content {
+            display: block;
+          }
+        }
+
+        .dropdown-btn {
+          border: none;
+          outline: none;
+          color: white;
+          background-color: inherit;
+          font-family: inherit; /* Important for vertical align on mobile phones */
+          margin: 0; /* Important for vertical align on mobile phones */
+          line-height: 2rem;
+          font-size: 2rem;
+        }
+
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          left: -2rem;
+          padding: 0 0.75rem;
+          box-shadow: 0px 0.5rem 1rem 0px rgba(0, 0, 0, 0.2);
+          z-index: 1;
+
+
+          a {
+            color: white;
+            text-decoration: none;
+            float: none;
+            display: block;
+            text-align: left;
+
+            &:hover {
+              background-color: $yellow-link;
+            }
+          }
+        }
+      }
+    }
+
+    #carouselExampleIndicators {
+
+      .carousel-inner {
+        .carousel_contents {
+          margin: 10rem auto 0 auto;
+          @include breakpoint(phone) {
+            max-width: 100%
+          }
+        ;
+          @include breakpoint(mobile) {
+            max-width: 100%
+          }
+        ;
+          @include breakpoint(tablet) {
+            max-width: 100%
+          }
+        ;
+          @include breakpoint(laptop) {
+            max-width: 100%
+          }
+        ;
+          @include breakpoint(widescreen) {
+            max-width: 100%
+          }
+        ;
+
+          @include flexbox();
+          @include flex-flow(column nowrap);
+          @include justify-content(center);
+          @include align-items(center);
+          width: 50rem;
+
+          .title {
+            font-family: Kaushan;
+            color: white;
+            font-weight: 400;
+            @include breakpoint(phone) {
+              font-size: 2rem;
+            }
+            @include breakpoint(mobile) {
+              font-size: 2.5rem;
+            }
+            @include breakpoint(tablet) {
+              font-size: 3rem;
+            }
+            @include breakpoint(laptop) {
+              font-size: 3.5rem;
+            }
+            @include breakpoint(widescreen) {
+              font-size: 4.5rem;
+            }
+          }
+
+          .header {
+            margin: 0;
+            font-family: Montserrat-B;
+            text-transform: uppercase;
+            text-align: center;
+            color: white;
+            @include breakpoint(phone) {
+              font-size: 3rem;
+            }
+            @include breakpoint(mobile) {
+              font-size: 4rem;
+            }
+            @include breakpoint(tablet) {
+              font-size: 6rem;
+            }
+            @include breakpoint(laptop) {
+              font-size: 7rem;
+            }
+            @include breakpoint(widescreen) {
+              font-size: 9.375rem;
+            }
+          }
+
+          .main-button {
+            padding: 1rem 2rem;
+            color: white;
+            text-transform: uppercase;
+            font-family: Montserrat-B;
+            border: 3px solid white;
+            background: transparent;
+            margin-bottom: 10rem;
+            text-decoration: none;
+
+            &:hover {
+              color: $yellow-link;
+              border-color: $yellow-link;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.sub {
+  .content {
+    @include flexbox();
+    @include flex-flow(column nowrap);
+    @include justify-content(center);
+    @include align-items(center);
+    width: 80%;
+    margin: 6.5rem auto;
+  }
+
+  .body-length {
+    @extend .content;
+    width: 100%;
+    margin-bottom: 0;
+
+    .sub__text {
+      width: 60%;
+    }
+
+    .sub__header {
+      width: 60%;
+    }
+  }
+
+  &__title {
+    font-family: Kaushan;
+    font-size: 1.5rem;
+    color: $black;
+    padding-bottom: 1.5rem;
+  }
+
+  &__header {
+    font-family: Montserrat-B;
+    font-size: 2rem;
+    color: $black;
+    padding-bottom: 2.5rem;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &__text {
+    padding-bottom: 6rem;
+    font-family: Roboto;
+    font-size: 1rem;
+    color: $grey;
+    width: 75%;
+    text-align: center;
+  }
+
+  &__filler {
+    @include flexbox();
+    @include flex-flow (row nowrap);
+    @include justify-content(center);
+
+    &__1 {
+      @include flexbox();
+      @include flex-flow(row wrap);
+      @include justify-content(space-evenly);
+
+      .item {
+        position: relative;
+        margin: 0.5rem 1rem;
+        @include breakpoint(phone) {
+          max-width: 75%;
+        }
+        @include breakpoint(mobile) {
+          max-width: 75%;
+        }
+        @include breakpoint(tablet) {
+          max-width: 60%;
+        }
+        @include breakpoint(laptop) {
+          width: 30%;
+        }
+        @include breakpoint(widescreen) {
+          width: 30%;
+        }
+
+
+        .item-text {
+          position: absolute;
+          opacity: 0;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          color: white;
+          text-transform: uppercase;
+          font-family: Montserrat-B;
+          @include breakpoint(mobile) {
+            font-size: 0.5rem
+          }
+          @include breakpoint(tablet) {
+            font-size: 0.75rem
+          }
+          @include breakpoint(laptop) {
+            font-size: 1rem
+          }
+          @include breakpoint(widescreen) {
+            font-size: 1rem
+          }
+
+          .icon-users {
+            font-size: 2rem;
+          }
+        }
+
+        .item-image {
+
+          img {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+          }
+        }
+
+        &:hover {
+          box-shadow: 10px 10px $blue;
+          transform: translate(-10px, -10px);
+          background-image: $main-gradient;
+          background-repeat: repeat;
+          background-size: cover;
+
+          .item-text {
+            opacity: 1;
+          }
+
+          .item-image {
+            opacity: 0.1;
+          }
+        }
+      }
+    }
+
+    &__2 {
+      @include flexbox();
+      @include flex-flow (row wrap);
+      @include justify-content(space-evenly);
+
+      .item {
+        @include flexbox();
+        @include flex-flow(row wrap);
+        @include justify-content(center);
+        margin: 1.5rem 0;
+        @include breakpoint(mobile) {
+          max-width: 75%;
+        }
+        @include breakpoint(tablet) {
+          max-width: 75%;
+        }
+        @include breakpoint(laptop) {
+          max-width: 50%;
+        }
+        @include breakpoint(widescreen) {
+          max-width: 30%;
+        }
+
+        &__icon {
+          width: 20%;
+        }
+
+        &__text {
+          width: 80%;
+          margin-left: -0.75rem;
+
+          .top {
+            @extend .sub__header;
+            font-size: 0.9rem;
+            font-weight: normal;
+          }
+
+          .bottom {
+            @extend .sub__text;
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+
+    &__3 {
+
+    }
+
+    &__4 {
+      @include flexbox();
+      @include flex-flow(row wrap);
+      @include justify-content(space-evenly);
+
+      .item {
+        position: relative;
+        margin: 0.5rem 1rem;
+        @include breakpoint(phone) {
+          max-width: 60%;
+        }
+        @include breakpoint(mobile) {
+          max-width: 60%;
+        }
+        @include breakpoint(tablet) {
+          min-width: 20%;
+          max-width: 25%;
+        }
+        @include breakpoint(laptop) {
+          min-width: 20%;
+          max-width: 25%;
+        }
+        @include breakpoint(widescreen) {
+          min-width: 20%;
+          max-width: 25%;
+        }
+
+        .item-figure {
+          position: absolute;
+          opacity: 0;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 60%;
+          height: 12.5%;
+          background-color: $yellow-link;
+          @include flexbox;
+          @include flex-flow(row nowrap);
+          @include justify-content(center);
+
+          &__cell {
+            width: 25%;
+            height: 100%;
+            position: relative;
+            border-right: 1px solid $red;
+            font-size: 1rem;
+
+            &:last-child {
+              border: none;
+            }
+
+            span {
+              color: $red;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+
+            &:hover {
+              background-color: $red;
+
+              span {
+                color: white;
+              }
+            }
+          }
+
+          @include breakpoint(mobile) {
+            font-size: 0.5rem
+          }
+          @include breakpoint(tablet) {
+            font-size: 0.75rem
+          }
+          @include breakpoint(laptop) {
+            font-size: 1rem
+          }
+          @include breakpoint(widescreen) {
+            font-size: 1rem
+          }
+
+          .icon-users {
+            font-size: 2rem;
+          }
+        }
+
+        .item-image {
+
+          img {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+          }
+        }
+
+        &:hover {
+          box-shadow: 10px 10px $blue;
+          transform: translate(-10px, -10px);
+          background-image: $main-gradient;
+          background-repeat: repeat;
+          background-size: cover;
+
+          .item-figure {
+            opacity: 1;
+            z-index: 3;
+          }
+
+          .item-image {
+            opacity: 0.1;
+            z-index: 1;
+          }
+        }
+      }
+    }
+
+    &__5 {
+      @include flexbox;
+      @include flex-flow(row wrap);
+      @include justify-content(space-between);
+
+      &__left {
+        @include breakpoint(laptop) {
+          width: 50%
+        }
+      ;
+        //width: 50%;
+        @include flexbox;
+        @include flex-flow(row wrap);
+        @include align-items(flex-start);
+
+        .cell {
+          width: 50%;
+        }
+      }
+
+      &__right {
+        @include breakpoint(laptop) {
+          width: 50%
+        }
+      ;
+        @include flexbox;
+        @include flex-flow(row wrap);
+
+        .column-1 {
+          width: 50%;
+          display: inline-block;
+        }
+
+        .column-2 {
+          width: 50%;
+          display: inline-block;
+        }
+      }
+
+      .cell {
+        position: relative;
+
+        img {
+          position: relative;
+          opacity: 1;
+        }
+
+        .text {
+          opacity: 0;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        &:hover {
+          img {
+            opacity: 0.1;
+          }
+
+          background-image: $main-gradient;
+
+          .text {
+            opacity: 1;
+            z-index: 3;
+            text-align: center;
+            color: white;
+            text-transform: uppercase;
+            font-family: Montserrat;
+            font-size: 1rem;
+
+            span {
+              font-size: 2rem;
+            }
+          }
+        }
+      }
+    }
+
+    &__6 {
+      @include flexbox;
+      @include flex-flow(row wrap);
+      @include justify-content(space-around);
+      @include align-items(flex-start);
+
+      .item {
+        @include breakpoint(phone) {
+          min-width: 51%;
+        }
+        @include breakpoint(mobile) {
+          min-width: 51%;
+        }
+        @include breakpoint(tablet) {
+          min-width: 51%;
+        }
+        @include breakpoint(laptop) {
+          min-width: unset;
+          max-width: 45%;
+        }
+
+        @include flexbox;
+        @include flex-flow(row nowrap);
+        @include justify-content(space-between);
+        padding: 3rem 0;
+
+        &__image {
+          min-width: 25%;
+          padding: 0.5rem;
+
+          img {
+            width: 7rem;
+          }
+        }
+
+        &__text {
+          @include breakpoint(phone) {
+            max-width: 75%;
+            min-width: 70%;
+          }
+          @include breakpoint(mobile) {
+            max-width: 75%;
+          }
+          @include breakpoint(tablet) {
+            max-width: 75%;
+          }
+          @include breakpoint(laptop) {
+            max-width: 100%;
+          }
+          @include breakpoint(widescreen) {
+            max-width: 75%;
+          }
+
+          @include flexbox;
+          @include flex-flow(column nowrap);
+          @include justify-content(flex-start);
+
+          .top {
+            color: $black;
+            font-family: Montserrat;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+          }
+
+          .middle {
+            @extend .top;
+            font-family: Roboto-I;
+            text-transform: none;
+          }
+
+          .bottom {
+            @extend .middle;
+            font-family: Roboto;
+            color: $grey;
+          }
+        }
+      }
+    }
+
+    &__7 {
+      @include flexbox;
+      @include flex-flow(row wrap);
+      @include justify-content(space-around);
+
+      .item {
+        margin: 1rem 0;
+        @include breakpoint(phone) {
+          min-width: 75%;
+        }
+        @include breakpoint(mobile) {
+          max-width: 75%;
+        }
+        @include breakpoint(tablet) {
+          max-width: 50%;
+          min-width: 25%;
+        }
+        @include breakpoint(laptop) {
+          max-width: 33%;
+          min-width: unset;
+        }
+
+        &__inside {
+          position: relative;
+
+          &__image {
+            width: 90%;
+            margin: 0 auto 1rem auto;
+          }
+
+          &__date {
+            position: absolute;
+            top: 60%;
+            left: 0;
+            color: white;
+            text-align: center;
+            background-color: $blue;
+            opacity: 1;
+            padding: 0.25rem 1.25rem;
+
+            .top {
+              font-size: 2rem;
+              font-family: Montserrat-B;
+              display: block;
+
+              @include breakpoint(phone) {
+                font-size: 1rem;
+              }
+              @include breakpoint(mobile) {
+                font-size: 1.5rem;
+              }
+              @include breakpoint(tablet) {
+                font-size: 1.5rem;
+              }
+              @include breakpoint(laptop) {
+                font-size: 1.2rem;
+              }
+              @include breakpoint(widescreen) {
+                font-size: 2rem;
+              }
+            }
+
+            .bottom {
+              font-size: 1rem;
+              font-family: Roboto-I;
+              display: block;
+
+              @include breakpoint(phone) {
+                font-size: 0.5rem;
+              }
+              @include breakpoint(mobile) {
+                font-size: 0.7rem;
+              }
+              @include breakpoint(tablet) {
+                font-size: 0.7rem;
+              }
+              @include breakpoint(laptop) {
+                font-size: 0.6rem;
+              }
+              @include breakpoint(widescreen) {
+                font-size: 1rem;
+              }
+            }
+          }
+        }
+
+        &__text {
+          width: 90%;
+          margin: 0 auto;
+          padding-bottom: 1rem;
+          border-bottom: 1px solid $middle-grey;
+
+          .top {
+            color: $black;
+            font-family: Montserrat;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+          }
+
+          .bottom {
+            color: $grey;
+            font-family: Roboto;
+            font-size: 0.9rem;
+          }
+        }
+
+        &__footer {
+          @extend .item__text;
+          margin-top: 1rem;
+          border: none;
+
+          .icon-eye {
+            color: $blue;
+          }
+
+          .icon-bubble {
+            margin-left: 1rem;
+            color: $blue;
+          }
+
+          span {
+            font-family: Roboto-I;
+            color: $grey;
+          }
+        }
+      }
+    }
+  }
+
+  &__accord {
+    margin: -6.5rem 0 6.5rem 0;
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    &__image {
+      img {
+        width: 100%;
+      }
+    }
+
+    .breaker {
+      display: block;
+      @include breakpoint(tablet) {
+        display: none;
+      }
+    }
+
+    .accordeon {
+
+      img {
+        display: inline-block;
+        display: -moz-inline-block;
+      }
+
+      .words {
+        display: inline-block;
+        display: -moz-inline-block;
+        vertical-align: middle;
+        text-decoration: none;
+        color: $black;
+        text-transform: uppercase;
+        margin-left: 1rem;
+      }
+    }
+
+    .accordeon-content {
+      overflow-y: scroll;
+
+      @include breakpoint(phone) {
+        height: 9.3rem;
+      }
+      @include breakpoint(mobile) {
+        height: 9.3rem;
+      }
+      @include breakpoint(tablet) {
+        height: 9.3rem;
+      }
+      @include breakpoint(laptop) {
+        height: 7rem;
+      }
+      @include breakpoint(widescreen) {
+        height: 9.3rem;
+      }
+    }
+  }
+}
+
+.sub-colored {
+  background-image: $sub-gradient, url('../images/mountain.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .content {
+    margin: 0 auto;
+    padding: 6.5rem 0 3.5rem 0;
+  }
+}
+
+.linear {
+  .content {
+    background-color: $blue;
+    width: 100%;
+    @include flexbox();
+    @include flex-flow(row nowrap);
+    @include justify-content(center);
+
+    .item {
+      @include flexbox();
+      @include flex-flow(column nowrap);
+      @include justify-content(flex-start);
+      @include align-items(center);
+      border-right: 1px solid white;
+      width: 16%;
+      @include breakpoint(phone) {
+        padding: 0.5rem;
+        width: 20%;
+      }
+      @include breakpoint(mobile) {
+        padding: 2rem 1rem;
+        width: 20%;
+      }
+      @include breakpoint(tablet) {
+        padding: 2.5rem 1.5rem;
+        width: 20%;
+      }
+      @include breakpoint(laptop) {
+        padding: 4rem 2rem;
+      }
+      @include breakpoint(widescreen) {
+        padding: 5.5rem 2.5rem;
+        width: 16%;
+      }
+
+      &:first-child {
+        border-left: 1px solid white;
+      }
+
+      &__number {
+        font-family: Montserrat-B;
+        @include breakpoint(phone) {
+          font-size: 1.5rem;
+        }
+        @include breakpoint(mobile) {
+          font-size: 1.5rem;
+        }
+        @include breakpoint(tablet) {
+          font-size: 2rem;
+        }
+        @include breakpoint(laptop) {
+          font-size: 3rem;
+        }
+        @include breakpoint(widescreen) {
+          font-size: 4.5rem;
+        }
+        color: white;
+        padding-bottom: 0.5rem;
+      }
+
+      &__text {
+        font-family: Montserrat;
+        @include breakpoint(phone) {
+          font-size: 0.5rem;
+        }
+        @include breakpoint(mobile) {
+          font-size: 0.6rem;
+        }
+        @include breakpoint(tablet) {
+          font-size: 0.7rem;
+        }
+        @include breakpoint(laptop) {
+          font-size: 0.8rem;
+        }
+        @include breakpoint(widescreen) {
+          font-size: 0.9rem;
+        }
+        text-transform: uppercase;
+        color: white;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.devices {
+  background-image: $sub-gradient, url("../images/forest.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 6.5rem 0 0 0;
+  margin: 6.5rem 0;
+
+  .content {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    @include flexbox();
+    @include flex-flow(column nowrap);
+    @include justify-content(center);
+    @include align-items(center);
+  }
+
+  &__title {
+    @extend .sub__title;
+    text-align: center;
+  }
+
+  &__header {
+    @extend .sub__header;
+  }
+
+  &__filler {
+
+    .tablet {
+      position: relative;
+      z-index: 3;
+    }
+
+    .smartphone {
+      img {
+        position: absolute;
+        bottom: -13%;
+        left: 60%;
+        z-index: 3;
+        @include breakpoint(phone) {
+          max-width: 50%;
+        }
+      ;
+        @include breakpoint(mobile) {
+          max-width: 55%;
+        }
+      ;
+        @include breakpoint(laptop) {
+          max-width: 75%;
+        }
+      ;
+        @include breakpoint(widescreen) {
+          max-width: 100%;
+        }
+      ;
+      }
+    }
+  }
+}
+
+.swiper {
+  background-color: $light-grey;
+
+  #carouselExampleControls {
+    width: 80%;
+    margin: 0 auto;
+
+    .carousel-inner {
+      width: 75%;
+      margin: 0 auto;
+
+      .carousel-item {
+
+        .item {
+          @include flexbox();
+          @include flex-flow(row nowrap);
+          @include justify-content(center);
+          margin: 4.5rem 0;
+
+          &__image {
+            margin-right: 4rem;
+            display: none;
+
+            @include breakpoint(tablet) {
+              display: block;
+            }
+          }
+
+          &__image__imp {
+            border: 2px solid $blue;
+            width: 10rem;
+            height: 10rem;
+            @include flexbox();
+            @include justify-content(center);
+            @include align-items(center);
+          }
+
+          &__text {
+            //max-width: 40%;
+            @include flexbox();
+            @include flex-flow(column nowrap);
+            @include justify-content(space-between);
+
+            &__top {
+              font-family: Roboto-I;
+              font-size: 1.5rem;
+            }
+
+            &__bottom {
+              font-family: Kaushan;
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+    }
+
+    a {
+      .carousel-control-next-icon {
+        border-top: 3px solid $grey;
+        border-right: 3px solid $grey;
+        transform: rotate(45deg);
+      }
+
+      .carousel-control-prev-icon {
+        border-top: 3px solid $grey;
+        border-right: 3px solid $grey;
+        transform: rotate(225deg);
+      }
+    }
+  }
+}
+
+.linear-brands {
+  background-color: $light-grey;
+
+  .content {
+    width: 80%;
+    margin: 0 auto;
+    padding: 3rem 0;
+
+    img {
+      width: 100%
+    }
+  }
+}
+
+.swiper-2 {
+  background-color: white;
+
+  #carouselExampleControls-2 {
+    width: 80%;
+    margin: 0 auto;
+
+    .carousel-inner {
+      width: 75%;
+      margin: 0 auto;
+
+      .carousel-item {
+
+        .item {
+          @include flexbox();
+          @include flex-flow(row nowrap);
+          @include justify-content(center);
+          margin: 4.5rem 0;
+
+          &__image {
+            margin-right: 4rem;
+            display: none;
+
+            @include breakpoint(tablet) {
+              display: block;
+            }
+          }
+
+          &__image__imp {
+            width: 10rem;
+            height: 10rem;
+          }
+
+          &__text {
+            //max-width: 40%;
+            @include flexbox();
+            @include flex-flow(column nowrap);
+            @include justify-content(space-between);
+
+            &__top {
+              font-family: Roboto-I;
+              font-size: 1.5rem;
+            }
+
+            &__bottom {
+              font-family: Kaushan;
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+    }
+
+    a {
+      .carousel-control-next-icon {
+        border-top: 3px solid $grey;
+        border-right: 3px solid $grey;
+        transform: rotate(45deg);
+      }
+
+      .carousel-control-prev-icon {
+        border-top: 3px solid $grey;
+        border-right: 3px solid $grey;
+        transform: rotate(225deg);
+      }
+    }
+  }
+}
+
+.open-map {
+  background-image: $sub-gradient, url('../images/cavern.png');
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+
+  .content {
+    @include flexbox;
+    @include flex-flow(column nowrap);
+    @include justify-content(center);
+    @include align-items(center);
+    width: 80%;
+    padding: 3.5rem 0;
+    margin: 0 auto;
+
+    .title-icon {
+      color: $red;
+      font-size: 2rem;
+      padding-bottom: 1rem;
+    }
+
+    .header {
+      padding-bottom: 2rem;
+      color: $red;
+      font-family: Montserrat-B;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.sub-final {
+  background-color: $light-grey;
+
+  .content {
+    width: 80%;
+    margin: 0 auto;
+    padding: 5rem 0;
+
+    .filler {
+      @include flexbox;
+      @include flex-flow(row wrap);
+      @include justify-content(space-around);
+
+      .item-left {
+        @include flexbox;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-between);
+        @include flex-grow(1);
+
+        @include breakpoint(phone) {
+          min-width: 60%;
+          margin: 1.5rem 0;
+        }
+        @include breakpoint(mobile) {
+          max-width: 75%;
+          margin: 1.5rem 0;
+        }
+        //@include breakpoint(tablet) {max-width: 75%;}
+        //@include breakpoint(laptop) {max-width: 75%;}
+        @include breakpoint(widescreen) {
+          max-width: 45%;
+          min-width: 40%;
+        }
+
+
+        .mogo {
+          color: $fade-grey;
+          font-family: Montserrat-B;
+          font-size: 3rem;
+          margin-top: -1rem;
+        }
+
+        .text {
+          color: $grey;
+          font-family: Roboto;
+          font-size: 1rem;
+        }
+
+        .followers {
+          padding: 2.5rem 0;
+
+          &__top {
+            font-size: 0.9rem;
+            color: $black;
+            font-family: Montserrat;
+            display: block;
+            padding-bottom: 0.7rem;
+            border-bottom: 1px solid $middle-grey;
+
+            span {
+              font-family: Montserrat-B;
+              text-transform: uppercase;
+              font-size: 1rem;
+            }
+          }
+
+          &__bottom {
+            display: block;
+            padding-top: 0.7rem;
+
+            &__left {
+              color: $grey;
+              font-family: "Roboto-I";
+              font-size: 1rem;
+              display: inline-block;
+              margin-right: 1rem;
+            }
+
+            &__right {
+              display: inline-block;
+
+              a {
+                text-decoration: none;
+                color: $blue;
+                display: inline-block;
+                margin-right: 0.5rem;
+              }
+            }
+          }
+        }
+
+        form {
+          font-size: 0;
+        }
+
+        .final-form {
+          &__input {
+            color: $grey;
+            font-family: "Roboto-I";
+            font-size: 1rem;
+            height: 3rem;
+            padding: 0 1rem;
+            border: none;
+            outline: 1px solid $middle-grey;
+            min-width: 50%;
+          }
+
+          &__button {
+            font-size: 1rem;
+            color: #ffffff;
+            font-family: Montserrat-B;
+            text-transform: uppercase;
+            height: 3rem;
+            padding: 0 2rem;
+            background-color: $blue;
+            border: none;
+            outline: 1px solid $blue;
+          }
+        }
+      }
+
+      .item-middle {
+        //margin-right: 2rem;
+        @include flexbox;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-between);
+        @include align-items(flex-start);
+
+        @include breakpoint(phone) {
+          min-width: 60%;
+          margin: 1.5rem 0;
+        }
+        @include breakpoint(mobile) {
+          max-width: 75%;
+          margin: 1.5rem 0;
+        }
+        //@include breakpoint(tablet) {max-width: 75%;}
+        //@include breakpoint(laptop) {max-width: 75%;}
+        @include breakpoint(widescreen) {
+          max-width: 28%;
+        }
+
+        &__header {
+          color: $black;
+          font-family: Montserrat;
+          font-size: 1rem;
+          text-transform: uppercase;
+        }
+
+        &__cell {
+          @include flexbox;
+          @include flex-flow(row nowrap);
+          @include justify-content(center);
+          padding: 0.5rem 0 0.5rem 0;
+
+          .image {
+            width: 100%;
+            padding-right: 0.5rem;
+          }
+
+          .text {
+            color: $black;
+            font-family: Montserrat;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+
+            span {
+              color: $grey;
+              font-family: "Roboto-I";
+              font-size: 0.7rem;
+              display: block;
+            }
+          }
+        }
+      }
+
+      .item-right {
+        @include flexbox;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-between);
+        @include align-items(flex-start);
+        @include breakpoint(phone) {
+          min-width: 60%;
+          margin: 1.5rem 0;
+        }
+        @include breakpoint(mobile) {
+          max-width: 75%;
+          margin: 1.5rem 0;
+        }
+        //@include breakpoint(tablet) {max-width: 75%;}
+        //@include breakpoint(laptop) {max-width: 75%;}
+        @include breakpoint(widescreen) {
+          max-width: 22%;
+        }
+
+        &__header {
+          @extend .item-middle__header;
+        }
+
+        &__breaker {
+          height: 3rem;
+          background: red;
+        }
+
+        &__main {
+          @include flexbox;
+          @include flex-flow(row wrap);
+          @include justify-content(space-evenly);
+          margin-bottom: 1rem;
+
+          .image {
+            width: 33%;
+
+            img {
+              width: 100%;
+            }
+          }
+        }
+
+        span {
+          display: block;
+          color: $black;
+          font-family: "Roboto-I";
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background: $light-grey;
+
+  .content {
+    width: 80%;
+    margin: 0 auto;
+    color: $black;
+    font-family: Montserrat;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid $middle-grey;
+
+    a {
+      color: $red;
+      text-decoration: none;
+    }
+  }
+}
+

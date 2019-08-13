@@ -1,0 +1,35 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  font-size: 1rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+//****************************************************
+
+.line {
+  &__white{padding: 3rem 0;}
+
+  &__red{padding: 2rem 0;}
+}
+
+.redline {
+  padding-bottom: 2.5rem;
+}
+
+
+

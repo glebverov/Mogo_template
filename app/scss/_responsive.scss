@@ -1,0 +1,26 @@
+// Responsive set by Gleb
+@mixin breakpoint($class) {
+  @if $class == phone {
+    @media (max-width: 420px) {
+      @content;
+    }
+  } @else if $class == mobile {
+    @media (min-width: 421px) {
+      @content;
+    }
+  } @else if $class == tablet {
+    @media (min-width: 600px) {
+      @content;
+    }
+  } @else if $class == laptop {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $class == widescreen {
+    @media (min-width: 1050px) {
+      @content;
+    }
+  } @else {
+    @warn "Error in device specification";
+  }
+}

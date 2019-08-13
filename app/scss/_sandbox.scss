@@ -1,0 +1,75 @@
+.swiper {
+
+  &__nav {
+
+  }
+
+  &__inner {
+    @include flexbox();
+    @include justify-content(center);
+    @include align-items(center);
+
+    &__contents {
+      @include flexbox();
+      @include flex-flow(column nowrap);
+      @include justify-content(center);
+      @include align-items(center);
+      width: 50rem;
+      margin-top: 10rem;
+
+      .title {
+        font-family: Kaushan;
+        color: white;
+        font-weight: 400;
+        @include breakpoint(phone) {
+          font-size: 2rem;
+        }
+        @include breakpoint(mobile) {
+          font-size: 2.5rem;
+        }
+        @include breakpoint(tablet) {
+          font-size: 3rem;
+        }
+        @include breakpoint(laptop) {
+          font-size: 3.5rem;
+        }
+        @include breakpoint(widescreen) {
+          font-size: 4.5rem;
+        }
+      }
+
+      .header {
+        margin: 0;
+        font-family: Montserrat-B;
+        text-transform: uppercase;
+        text-align: center;
+        color: white;
+        @include breakpoint(phone) {
+          font-size: 3rem;
+        }
+        @include breakpoint(mobile) {
+          font-size: 4rem;
+        }
+        @include breakpoint(tablet) {
+          font-size: 6rem;
+        }
+        @include breakpoint(laptop) {
+          font-size: 7rem;
+        }
+        @include breakpoint(widescreen) {
+          font-size: 9.375rem;
+        }
+      }
+
+      .main-button {
+        padding: 1rem 2rem;
+        color: white;
+        text-transform: uppercase;
+        font-family: Montserrat-B;
+        border: 3px solid white;
+        background: transparent;
+        margin-bottom: 10rem;
+      }
+    }
+  }
+}
